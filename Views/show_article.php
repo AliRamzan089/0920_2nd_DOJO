@@ -11,17 +11,16 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
     $article = getOneArticle(intval($id));
 }
-var_dump($article);
 ?>
 <div class="container">
     <div class="row">
         <!-- AFFICHER LES DÉTAILS DE L'ARTICLE (title, img, content)-->
         <div class="col-12">
             <div class="media">
-                <img src="" class="mr-3" alt="image">
+                <img src="<?= $article->img; ?>" class="mr-3" alt="image">
                 <div class="media-body">
-                    <h5 class="mt-0">TITRE</h5>
-                    <p>CONTENT</p>
+                    <h5 class="mt-0"><?= $article->title; ?></h5>
+                    <p><?= $article->content; ?></p>
                 </div>
             </div>
         </div>

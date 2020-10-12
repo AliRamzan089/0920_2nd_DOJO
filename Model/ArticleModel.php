@@ -93,3 +93,20 @@ function deleteArticle(int $id)
         return $error;
     }
 }
+
+// BONUS-----------------------------------------------------------------------------------------------------------------
+// SEARCH
+function search(string $term)
+{
+    $pdo = new PDO(DSN, USER, PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    try {
+        // CODE ICI
+        $request = $pdo->prepare("SELECT * FROM article WHERE title LIKE :search ORDER BY title ASC");
+        $request->bindValue(':search', $term.'%', PDO::PARAM_STR);
+        $request->execute();
+        return $request->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        $error = $e->getMessage();
+        return $error;
+    }
+}

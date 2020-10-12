@@ -24,33 +24,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Tous les champs sont obligatoires !';
     }
 }
-
-var_dump($article);
 ?>
 <div class="container">
     <div class="row">
         <!-- FORMULAIRE CREATE & UPDATE -->
         <div class="col-12">
-            <div class="alert alert-danger" role="alert">
-                A simple danger alert—check it out!
-            </div>
+            <?php if ($error != null) { ?>
+                <div class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                </div>
+            <?php } ?>
             <form method="POST">
                 <div class="form-group">
                     <label for="title">Titre *</label>
-                    <input type="text" class="form-control" id="title" name="title" value="">
+                    <input type="text" class="form-control" id="title" name="title" value="<?= $article ?  $article->title : '' ?>">
                 </div>
                 <div class="form-group">
                     <label for="img">Image * ( https://www.placecage.com/640/360 )</label>
-                    <input type="text" class="form-control" id="img" name="img" value="">
+                    <input type="text" class="form-control" id="img" name="img" value="<?= $article ? $article->img : '' ?>">
                 </div>
                 <div class="form-group">
                     <label for="content">Texte *</label>
-                    <textarea class="form-control" id="content" name="content" value=""></textarea>
+                    <textarea class="form-control" id="content" name="content" value="">
+                            <?= $article ? $article->content : '' ?>
+                    </textarea>
                 </div>
                 <div class="form-group">
                     <small>Tous les champs sont obligatoires *</small>
                 </div>
-                <input type="text" class="d-none" id="id" name="id" value="">
+                <input type="text" class="d-none" id="id" name="id" value="<?= $article ? $article->id : '' ?>">
                 <div class="text-center mt-5">
                     <!-- CONDITION D'AFFICHAGE DES BOUTONS DU FORM -->
                     <!-- ici, afficher le bouton create si en create OU le bouton update si en update -->
