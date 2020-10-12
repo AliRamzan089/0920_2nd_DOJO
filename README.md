@@ -12,17 +12,17 @@
 
 ## GOALS :
 - CRUD Articles
--> TODO : getOneArticle
--> TODO : createArticle
--> TODO : updateArticle
--> deleteArticle = OK
--> getAllArticle = OK
+- TODO : getOneArticle
+- TODO : createArticle
+- TODO : updateArticle
+- deleteArticle = OK
+- getAllArticle = OK
 
--> Views/ index all articles
--> Views/ show on article 
--> Views/ edit article (update & create)
+- Views/ index all articles
+- Views/ show on article 
+- Views/ edit article (update & create)
 
 ### BONUS :
-- Search filter on name article -> TODO : search
+- Search filter on name article - TODO : search
 
   
